@@ -4,7 +4,8 @@ Curated examples, templates, and experiments for building and evaluating autonom
 
 This repository collects small, focused agent implementations and supporting materials for learning, prototyping and evaluating agent behaviors.
 
-Repository layout
+**Repository layout**
+
 - `hello-world-agents/`: simple example agents and notebooks to demonstrate patterns and developer workflows.
 	- `code_reflection_agent.ipynb`: interactive notebook demonstrating a simple reflection agent.
 	- `reflective-chartgen-agent/chartgen-agent.py`: a minimal chart-generation agent example.
@@ -16,7 +17,7 @@ Repository layout
 - `doc-templates/`: Markdown templates for agent design and evaluation specs (e.g. `agent-design-spec.md`, `agent-evaluation-spec.md`).
 - `learning-resources/`: resources to learn and implement AI agents and workflows
 
-Quick start
+**Quick start**
 
 1. Create and activate a virtual environment (recommended):
 
@@ -39,17 +40,17 @@ pip install -e .
 - Script example: run `python hello-world-agents/reflective-chartgen-agent/chartgen-agent.py`.
 - Multi-agent demo: inspect `multi-agents/code-reviewers/README.md` and run its `main.py` for a local run.
 
-Contributing
+**Contributing**
 
 - Read `doc-templates/agent-design-spec.md` and `doc-templates/agent-evaluation-spec.md` for guidance on adding new agents and evaluations.
 - Keep examples small and focused, include a short README for new agent folders, and add tests where appropriate.
 
-Notes
+**Notes**
 
 - This repository is intended as a learning and prototyping playground — expect experimental code and small demos rather than production-ready systems.
 - If you add long-running or resource-heavy examples, include instructions for required credentials and hardware in the example README.
 
-License
+**License**
 
 See the `LICENSE` file at the repository root.
 
