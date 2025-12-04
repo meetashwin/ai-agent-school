@@ -1,6 +1,7 @@
-# AI Crew for Stock Analysis
+# AI Crew for Code Review
 
-Introduction
+**Introduction**
+
 This repository contains an example multi-agent "code-reviewers" setup built on top of the CrewAI-style framework. The agents collaborate to analyze, review, and produce code and analysis for stock-related tasks. It demonstrates how to define agents, configure tasks, and run the system locally.
 
 **Key Features**
