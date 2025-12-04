@@ -1,0 +1,47 @@
+analyze_code_quality:
+  description: >
+    Following are steps to be followed in reviewing the code: 
+        1. Understand the changes that are to be reviewed available at {code_changes}
+        2. Identify potential bugs or issues that are part of the change
+        3. Quality the bugs or issues into - Critical or Minor based on their impact 
+
+  expected_output: >
+    Produce a well-formatted JSON output with these keys:
+        {
+          critical_issues: "array of issues that must be fixed",
+          minor_issues: "array of suggested improvements",
+          reasoning: "explanation of decisions"
+        }
+    
+    !IMPORTANT: Make sure there are no line breaks in the string values within the JSON.  This can cause formatting issues
+
+review_security:
+  description: >
+     Following are steps to be followed in reviewing the code: 
+        1. Understand the changes that are to be reviewed available at {code_changes}
+        2. Identify security vulnerabilities, security issues that potentially exist in the code
+        3. Determine the risk levels of every issue that you find in the code
+        4. Decide if the issues identified shoudl block the code review approval
+        
+        Use the SerperDevTool to find the most relevant security best practices from OWASP
+        and pass the URLs to the ScrapeWebsiteTool to get detailed information.
+
+  expected_output: >
+    Produce a well-formatted JSON output with these keys:
+        {
+          security_vulnerabilities: "array of identified issues with risk levels",
+          blocking: "boolean indicating if security issues should block approval",
+          highest_risk: "the most severe risk level found",
+          security_recommendations: "specific fixes for vulnerabilities"
+        }
+
+    !IMPORTANT: Make sure there are no line breaks in the string values within the JSON.  This can cause formatting issues
+
+make_review_decision:
+  description: >
+    Based on {code_changes}, make a decision if the PR can be approvaed.  Also decide on the next steps based on your review and
+    explain your decision clearly
+
+  expected_output: >
+    Create a short report explaining your final decision based on the task, required changes if any, approval comments if you are
+    approving the chages, reasoning for escalation if escalating and any additional recommendations
