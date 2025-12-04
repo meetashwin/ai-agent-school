@@ -5,17 +5,16 @@ Curated examples, templates, and experiments for building and evaluating autonom
 This repository collects small, focused agent implementations and supporting materials for learning, prototyping and evaluating agent behaviors.
 
 Repository layout
-- `agent-evals/`: evaluation assets and results for agent experiments.
-- `doc-templates/`: Markdown templates for agent design and evaluation specs (e.g. `agent-design-spec.md`, `agent-evaluation-spec.md`).
 - `hello-world-agents/`: simple example agents and notebooks to demonstrate patterns and developer workflows.
 	- `code_reflection_agent.ipynb`: interactive notebook demonstrating a simple reflection agent.
 	- `reflective-chartgen-agent/chartgen-agent.py`: a minimal chart-generation agent example.
 - `multi-agent-flows/`: experiments and examples showing coordination between multiple agents.
 - `multi-agents/`: reusable agent projects and tooling.
 	- `code-reviewers/`: an example multi-agent project for automated code review.
-		- `pyproject.toml`: project metadata and dependencies for the `code-reviewers` package.
-		- `src/code-reviewers/`: package source, including `crew.py`, `main.py`, and `tools/`.
 - `stock-analysis/`: (placeholder) workspace for financial/market agent experiments.
+- `agent-evals/`: evaluation assets and results for agent experiments.
+- `doc-templates/`: Markdown templates for agent design and evaluation specs (e.g. `agent-design-spec.md`, `agent-evaluation-spec.md`).
+- `learning-resources/`: resources to learn and implement AI agents and workflows
 
 Quick start
 
