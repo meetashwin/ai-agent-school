@@ -4,6 +4,14 @@ Curated examples, templates, and experiments for building and evaluating autonom
 
 This repository collects small, focused agent implementations and supporting materials for learning, prototyping and evaluating agent behaviors.
 
+For Agents, I pick 2 non-trivial use cases and implement them using the following popular and enterprise-grade agentic frameworks:
+- CrewAI
+- LangGraph
+- Nvidia NeMo
+- Mastra
+
+Here's how the repository is structured.  
+
 **Repository layout**
 
 - `hello-world-agents/`: simple example agents and notebooks to demonstrate patterns and developer workflows.
