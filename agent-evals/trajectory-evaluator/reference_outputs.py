@@ -50,3 +50,21 @@ reference_output_unordered = [
     {"role": "tool", "content": "It's 80 degrees and sunny in SF."},
     {"role": "assistant", "content": "In SF, it's 80˚ and sunny, but there is nothing fun happening."},
 ]
+
+reference_output_superset = [
+    {"role": "user", "content": "What is the weather in SF and London?"},
+    {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+            {
+                "function": {
+                    "name": "get_weather",
+                    "arguments": json.dumps({"city": "SF and London"}),
+                }
+            },
+        ],
+    },
+    {"role": "tool", "content": "It's 80 degrees and sunny in San Francisco, and 90 degrees and rainy in London."},
+    {"role": "assistant", "content": "The weather in SF is 80˚ and sunny. In London, it's 90˚ and rainy."},
+]

@@ -2,19 +2,14 @@
 Filename: trajectory-eval.py
 Author: Ashwin
 Created: 2026-01-13
-Description: Demonstration of various trajectory evaluations with sample agent output 
-            and reference test data
+Description: Demonstration of various trajectory evaluations - string, unordered, superset, subset
+with sample agent output and reference test data
 """
 
 import reference_outputs
 
 import json
 from agentevals.trajectory.match import create_trajectory_match_evaluator
-
-## Trajectory Evaluator - Strict
-
-## "strict" is useful is if you want to ensure that tools are always 
-## called in the same order for a given query (e.g. a company policy lookup tool before a tool that requests vacation time for an employee).
 
 def trajectory_evaluator(output, reference_output, match_mode="strict"):
     """
@@ -33,8 +28,9 @@ def trajectory_evaluator(output, reference_output, match_mode="strict"):
     return result
 
 ## 1. Strict evaluation 
-##   Creating a Sample Agent output which is a JSON that will be evaluated against a
-##   reference output using "strict" evaluation mode
+## The "strict" trajectory_match_mode compares two trajectories and 
+## ensures that they contain the same messages in the same order with 
+## the same tool calls
 
 output_strict = [
     {"role": "user", "content": "What is the weather in SF?"},
@@ -67,8 +63,10 @@ print(f"Reference Output: {reference_outputs.reference_output_strict}\n")
 print(f"Evaluator Result: {trajectory_evaluator(output_strict, reference_outputs.reference_output_strict, "strict")}\n")
 
 ## 2. Unordered
-##   Creating a Sample Agent output which is a JSON that will be evaluated against a
-##   reference output using "unordered" evaluation mode
+##  The "unordered" trajectory_match_mode compares two trajectories 
+##  and ensures that they contain the same tool calls in any order. 
+##  This is useful if you want to allow flexibility in how an agent obtains 
+##  the proper information, but still do care that all information was retrieved.
 
 output_unordered = [
     {"role": "user", "content": "What is the weather in SF and is there anything fun happening?"},
@@ -98,7 +96,40 @@ output_unordered = [
 ]
 
 print("Trajectory Evaluator - Unordered Match Mode")
-print("________________________________________")
+print("___________________________________________\n")
 print(f"Agent Output: {output_unordered}\n")
 print(f"Reference Output: {reference_outputs.reference_output_unordered}\n")
 print(f"Evaluator Result: {trajectory_evaluator(output_unordered, reference_outputs.reference_output_unordered, "unordered")}\n")
+
+## 3. Superset / Subset
+##  The "subset" and "superset" modes match partial trajectories 
+## (ensuring that a trajectory contains a subset/superset of tool calls 
+## contained in a reference trajectory).
+
+output_superset = [
+    {"role": "user", "content": "What is the weather in SF and London?"},
+    {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [{
+            "function": {
+                "name": "get_weather",
+                "arguments": json.dumps({"city": "SF and London"}),
+            },
+        }, {
+            "function": {
+                "name": "accuweather_forecast",
+                "arguments": json.dumps({"city": "SF and London"}),
+            }
+        }],
+    },
+    {"role": "tool", "content": "It's 80 degrees and sunny in SF, and 90 degrees and rainy in London."},
+    {"role": "tool", "content": "Unknown."},
+    {"role": "assistant", "content": "The weather in SF is 80 degrees and sunny. In London, it's 90 degrees and rainy."},
+]
+
+print("Trajectory Evaluator - Superset/Subset Match Mode")
+print("_________________________________________________\n")
+print(f"Agent Output: {output_superset}\n")
+print(f"Reference Output: {reference_outputs.reference_output_superset}\n")
+print(f"Evaluator Result: {trajectory_evaluator(output_superset, reference_outputs.reference_output_superset, "superset")}\n")
