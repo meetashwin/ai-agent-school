@@ -14,6 +14,7 @@ Here's how the repository is structured.
 **Repository layout**
 
 - `agent-ecosystem/`: bird's eye view of the AI agent ecosystem including key concepts and components.
+- `agent-reference-arch/`: comprehensive guide to enterprise-grade agent and multi-agent system design, including architectural patterns, design principles, best practices, and core components like data management, generative AI models, integration layers, orchestration, and cross-cutting concerns.
 - `agent-evals/`: evaluation frameworks and tools for testing agent performance.
 	- `trajectory-evaluator/`: agent trajectory match evaluators with strict/unordered/subset/superset matching modes.
 	- `trajectory-evaluator-llm-judge/`: LLM-as-judge trajectory evaluators for agent evaluation without reference trajectories.

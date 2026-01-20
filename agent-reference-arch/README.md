@@ -24,20 +24,20 @@ This section provides architectural patterns, design principles, and best practi
 - ***Leading Industry Solutions***: OpenAI, Anthropic, Amazon Bedrock, Google Vertex AI
 
 ### 3. **Integration**
-- **LLM Gateway**: Orchestrating agent tasks and sequences
-- **MCP Gateway**: Communication and collaboration between agents
-- **Guardrails**: Fallback strategies and retry mechanisms
+- **LLM Gateway**: Seamless and controlled access to various LLMs
+- **MCP Gateway**: Controlled access to various MCP Serves and Tools
+- **Guardrails**: Controls and guardrais around personal data, cost, compliance, enterprise guidelines etc.
 
 ### 4. **Agents & Orchestration**
-- **Agent Frameworks**: Structured facts, documents, and domain-specific data
-- **Orchestration**: Relevant information retrieval and injection
-- **RAG**: Vector stores, embeddings, and search
-- **Memory / Vector DB**: Ensuring responses are based on reliable sources
+- **Agent Frameworks**: Enterprise commercial and open-source frameworks to build AI agents
+- **Orchestration**: Coordination and management of multiple AI agents working together to accomplish complex tasks through structured workflows and communication patterns.
+- **RAG**: Knowledge base and RAG apps
+- **Memory / Vector DB**: Session and long-term memory store for agentic apps
 
 ### 5. **Agentic Apps**
-- **Web & Mobile Apps**: Sanitizing and validating user inputs
-- **APIs**: Preventing harmful or inappropriate outputs
-- **Triggers, Scheduled Tasks**: Controlling resource usage and abuse prevention
+- **Web & Mobile Apps**: End-user apps across web and mobile platforms
+- **APIs**: Agentic apps as services to internal and external consumers
+- **Triggers, Scheduled Tasks**: Entperprise automation and scheduled jobs
 
 ### 6. **Cross-Cutting Components**
 - **Authentications**: Sanitizing and validating user inputs
