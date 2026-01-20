@@ -8,21 +8,22 @@ For Agents, I pick 2 non-trivial use cases and implement them using the followin
 - CrewAI
 - LangGraph
 - Nvidia NeMo
-- Mastra
 
 Here's how the repository is structured.  
 
 **Repository layout**
 
-- `hello-world-agents/`: simple example agents and notebooks to demonstrate patterns and developer workflows.
-	- `code_reflection_agent.ipynb`: interactive notebook demonstrating a simple reflection agent.
-	- `reflective-chartgen-agent/chartgen-agent.py`: a minimal chart-generation agent example.
-- `multi-agent-flows/`: experiments and examples showing coordination between multiple agents.
-- `multi-agents/`: reusable agent projects and tooling.
-	- `code-reviewers/`: an example multi-agent project for automated code review.
-- `stock-analysis/`: (placeholder) workspace for financial/market agent experiments.
-- `agent-evals/`: evaluation assets and results for agent experiments.
-- `doc-templates/`: Markdown templates for agent design and evaluation specs (e.g. `agent-design-spec.md`, `agent-evaluation-spec.md`).
+- `agent-ecosystem/`: bird's eye view of the AI agent ecosystem including key concepts and components.
+- `agent-evals/`: evaluation frameworks and tools for testing agent performance.
+	- `trajectory-evaluator/`: agent trajectory match evaluators with strict/unordered/subset/superset matching modes.
+	- `trajectory-evaluator-llm-judge/`: LLM-as-judge trajectory evaluators for agent evaluation without reference trajectories.
+	- `graph-evaluator/`: graph trajectory evaluators for frameworks like LangGraph.
+	- `graph-evaluator-llm-judge/`: LLM-as-judge graph trajectory evaluators.
+- `multi-agent-samples/`: framework-specific multi-agent implementations.
+	- `crewai/`: CrewAI multi-agent examples including code-reviewers project.
+	- `langgraph/`: LangGraph multi-agent examples.
+	- `nemo/`: Nvidia NeMo multi-agent examples.
+- `doc-templates/`: Markdown templates for agent design and evaluation specs (e.g. `agent-design-spec.md`, `agent-evaluation-spec.md`, `agent-tech-spec.md`).
 - `learning-resources/`: resources to learn and implement AI agents and workflows
 
 **Quick start**
@@ -37,16 +38,16 @@ source .venv/bin/activate
 2. Install a project's dependencies before running examples. For the `code-reviewers` example:
 
 ```bash
-cd multi-agents/code-reviewers
+cd multi-agent-samples/crewai/code-reviewers
 pip install -e .
 # or use the packaging tool declared in `pyproject.toml` (poetry/pep517)
 ```
 
-3. Run examples or open notebooks:
+3. Run examples, open notebooks, or explore evaluations:
 
-- Notebook: open `hello-world-agents/code_reflection_agent.ipynb` in Jupyter/Lab.
-- Script example: run `python hello-world-agents/reflective-chartgen-agent/chartgen-agent.py`.
-- Multi-agent demo: inspect `multi-agents/code-reviewers/README.md` and run its `main.py` for a local run.
+- **Multi-agent demo**: inspect `multi-agent-samples/crewai/code-reviewers/README.md` and run its `main.py` for a local run.
+- **Agent evaluations**: explore `agent-evals/` to understand evaluation frameworks and run trajectory or graph evaluators.
+- **Ecosystem overview**: visit `agent-ecosystem/` for a mindmap of AI agent concepts and components.
 
 **Contributing**
 
